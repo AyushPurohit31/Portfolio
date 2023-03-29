@@ -1,0 +1,173 @@
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { styles } from "../styles";
+import { slideIn, textVariant } from "../utils/motion";
+import StarWrapper from "../sectionWrapper/sectionWrap";
+import lottieAnimation from "../assets/lottiefiles/rocket.json"
+import { contacts } from "../constants";
+import Lottie from "react-lottie";
+import emailjs from "@emailjs/browser";
+
+//cRFszuvyo1cLwxUfQ
+//template_78odl5j
+//service_ynnx7sg
+
+const Contact = () => {
+
+  const formRef = useRef();
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { target } = e;
+    const { name, value } = target;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_ynnx7sg",
+        "template_78odl5j",
+        {
+          from_name: form.name,
+          to_name: "Ayush Purohit",
+          from_email: form.email,
+          to_email: "ayushpurohit140@gmail.com",
+          message: form.message,
+        },
+        "cRFszuvyo1cLwxUfQ"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
+  };
+
+  const defaultOptions = {
+    loop : true,
+    autoplay : true,
+    animationData : lottieAnimation,
+  }
+  
+  return (
+  <>
+    <motion.div className="content-center" variants={textVariant()}>
+      <p className={styles.sectionSubText}>Get in touch</p>
+      <h3 className={styles.sectionHeadText}>Contact.</h3>
+    </motion.div>
+    <div
+      className={`xl:mt-12 xs:m-5 flex xl:flex-row flex-col w-full h-auto justify-between`}
+    >
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1], transition:{duration:0.5} }}
+        className='flex-[0.75] bg-black-100 p-5 rounded-2xl'
+      >
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className='mt-5 mb-5 flex flex-col gap-8'
+        >
+          <label className='flex flex-col'>
+            <span className='text-white font-medium mb-4'>Your Name</span>
+            <input
+              type='text'
+              name='name'
+              value={form.name}
+              onChange={handleChange}
+              placeholder="What's your good name?"
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+            />
+          </label>
+          <label className='flex flex-col'>
+            <span className='text-white font-medium mb-4'>Your email</span>
+            <input
+              type='email'
+              name='email'
+              value={form.email}
+              onChange={handleChange}
+              placeholder="What's your web address?"
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+            />
+          </label>
+          <label className='flex flex-col'>
+            <span className='text-white font-medium mb-4'>Your Message</span>
+            <textarea
+              rows={2}
+              name='message'
+              value={form.message}
+              onChange={handleChange}
+              placeholder='What you want to say?'
+              className= 'flex-shrink bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+            />
+          </label>
+
+          <button
+            type='submit'
+            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+          >
+            {loading ? "Sending..." : "Send"}
+          </button>
+        </form>
+      </motion.div>
+
+      <div className="flex-col items-center justify-center">
+          <div className="w-full flex items-center justify-center">
+          <div className="sm:w-[450px] sm:h-[450px] w-[300px] h-[300px] relative z-[5] flex items-center justify-center pointer-events-none rounded-2xl">
+            <Lottie
+              options={defaultOptions}
+            />
+          </div>
+          </div>
+          <div className="flex mt-2 items-center justify-center">
+          <ul className='list-none flex sm:gap-7 gap-2'>
+            {contacts.map((nav) => (
+              <li
+                key={nav.id}
+                onClick={() => setActive(nav.title)}
+              >
+                <button>
+                  <img 
+                    className="m-1 w-12 h-12 rounded-full border-4 border-y-indigo-500" 
+                    src={nav.icon} 
+                    alt="img" 
+                    onClick={() => window.open(nav.link, "_blank")}
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        </div>
+      </div>
+      </>
+  )
+}
+
+export default StarWrapper(Contact, "contact")
