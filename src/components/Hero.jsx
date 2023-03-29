@@ -14,7 +14,7 @@ const Hero = () => {
     <section className={`relative w-full h-screen mx-auto flex flex-col`}>
       <motion.div
         whileInView={{ y: [50, 0], opacity: [0, 1], transition:{duration : 1}}}
-        className={`absolute inset-0 md:top-[140px] xs:top-[80px] max-w-7xl mx-auto ${styles.paddingX} sm:flex md:flex-row  items-start gap-10`}
+        className={`absolute inset-0 top-[130px] max-w-7xl mx-auto ${styles.paddingX} sm:flex md:flex-row  items-start gap-10`}
       >
 
         <div>
