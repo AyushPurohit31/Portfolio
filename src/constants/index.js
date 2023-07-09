@@ -112,7 +112,7 @@ import {
       id: "insta",
       title: "Insta",
       icon: instagram,
-      link : "https://github.com/AyushPurohit31"
+      link : "https://www.instagram.com/ayushpurohit11/"
     },
     {
       id: "facebook",

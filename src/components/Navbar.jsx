@@ -5,11 +5,17 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { menu, close } from "../assets";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { light, onLightChange } = props;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +32,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  
   return (
     <motion.nav
     initial = {{y : -50}}
@@ -50,27 +57,62 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <p className='text-white text-[20px] font-bold cursor-pointer flex '>
+          <p className={`
+              ${
+                light && scrolled? "text-white" : null
+              }
+              ${
+                !light && !scrolled? "text-white" : null
+              }
+              ${
+                !light && scrolled? "text-white" : null
+              }
+              ${
+                light && !scrolled? "text-slate-600" : null
+              }
+            hover:text-fuchsia-600 text-[20px] font-bold cursor-pointer flex`}>
             Ayush &nbsp;
             <span className='sm:hidden'> |&nbsp; Purohit</span>
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-7'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white md:text-[20px] sm:text-[16px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex">
+            <FormGroup>
+              <FormControlLabel
+                control={<Switch onChange={onLightChange} sx={{ m: 1 }}  defaultChecked />}
+                label={
+                  !light? <DarkModeIcon /> : <LightModeIcon className={`${
+                    scrolled? "text-white-100" : "text-gray-800"
+                  }`}/>
+                }
+              />
+            </FormGroup>
+          <ul className='list-none hidden md:flex flex-row gap-7'>
+            {navLinks.map((nav) => (
+              <li
+                key={nav.id}
+                className={`
+                ${
+                  light && scrolled? "text-white" : null
+                }
+                ${
+                  !light && !scrolled? "text-white" : null
+                }
+                ${
+                  !light && scrolled? "text-white" : null
+                }
+                ${
+                  light && !scrolled? "text-slate-700" : null
+                }
+              hover:text-fuchsia-600 md:text-[20px] sm:text-[16px] font-medium cursor-pointer my-auto`}
+                onClick={() => setActive(nav.title)}
+              >
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
        
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='md:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
             alt='menu'
@@ -100,6 +142,7 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+        </div>
         </div>
       </div>
     </motion.nav>

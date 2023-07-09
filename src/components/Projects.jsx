@@ -41,7 +41,7 @@ const ProjectCard = ({
             <div className="flex gap-2">
               {links.map((lnk) => (
                 <img 
-                className="w-10 h-10 cursor-pointer border-2 border-x-[#915EFF] rounded-full"
+                className="neon-button w-10 h-10 cursor-pointer rounded-full"
                 onClick={() => window.open(lnk.src, "_blank")}
                 src={lnk.icon}
                 alt="link"
@@ -76,7 +76,7 @@ const Works = () => {
       <div className='w-full flex'>
         <p
           
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+          className='mt-3 text-slate-500 text-[17px] max-w-3xl leading-[30px]'
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with

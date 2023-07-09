@@ -85,9 +85,8 @@ const Contact = () => {
     <div
       className={`xl:mt-12 xs:m-5 flex xl:flex-row flex-col w-full h-auto justify-between`}
     >
-      <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0, 1], transition:{duration:0.5} }}
-        className='flex-[0.75] bg-black-100 p-5 rounded-2xl'
+      <div
+        className='flex-[0.75] bg-[#915EFF] p-5 rounded-2xl'
       >
         <form
           ref={formRef}
@@ -102,7 +101,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-white py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium'
             />
           </label>
           <label className='flex flex-col'>
@@ -113,7 +112,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-white py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium'
             />
           </label>
           <label className='flex flex-col'>
@@ -124,18 +123,18 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className= 'flex-shrink bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-white py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium'
             />
           </label>
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            className='bg-white py-3 px-8 rounded-xl outline-none w-fit text-[#915EFF] font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
-      </motion.div>
+      </div>
 
       <div className="flex-col items-center justify-center">
           <div className="w-full flex items-center justify-center">
@@ -152,14 +151,14 @@ const Contact = () => {
                 key={nav.id}
                 onClick={() => setActive(nav.title)}
               >
-                <button>
-                  <img 
-                    className="m-1 w-12 h-12 rounded-full border-4 border-y-indigo-500" 
-                    src={nav.icon} 
-                    alt="img" 
-                    onClick={() => window.open(nav.link, "_blank")}
-                  />
-                </button>
+                <button className="neon-button rounded-full m-1.5 w-12 h-12 bg-white">
+                    <img 
+                      className="w-full h-full p-1" 
+                      src={nav.icon} 
+                      alt="img" 
+                      onClick={() => window.open(nav.link, "_blank")}
+                    />
+                  </button>
               </li>
             ))}
           </ul>

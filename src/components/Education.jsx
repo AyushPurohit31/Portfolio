@@ -20,15 +20,16 @@ const ExperienceCard = ({ experience }) => {
         background: "#915EFF",
         color: "#fff",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #915EFF" }}
+      contentArrowStyle={{ borderRight: "15px solid  #915EFF" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      dateClassName="react-vertical-timeline-options"
+      iconStyle={{ background: experience.iconBg, border:"3px solid gray" }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
+            className='w-[60%] h-[60%] object-contain border-gray-800'
           />
         </div>
       }
