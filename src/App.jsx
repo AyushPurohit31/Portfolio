@@ -1,6 +1,8 @@
 import { BrowserRouter } from "react-router-dom"
 import { About, Contact, Hero, Navbar, Education, Tech, Projects, Footer} from './components';
 import { useState } from "react";
+import Experience from "./components/Experience";
+import ScrollProgressBar from "react-scroll-progress-bar";
 
 
 const App = () =>{
@@ -10,6 +12,7 @@ const App = () =>{
   };
   return (
     <BrowserRouter>
+    <ScrollProgressBar bgColor={light ? "#000" : "#fff"} height="3px" />
       <div className={`z-0 ${light=== true ?  "bg-white-100" : 'bg-slate-900'}`}>
 
         {light ? (
@@ -26,6 +29,7 @@ const App = () =>{
         <About/>
         <Education/>
         <Tech/>
+        <Experience/>
         <Projects/>
         <div className="relative z-0">
           <Contact/>

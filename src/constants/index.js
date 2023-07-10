@@ -81,6 +81,10 @@ import {
       title: "Skills",
     },
     {
+      id: "work",
+      title: "Work",
+    },
+    {
       id: "projects",
       title: "Projects",
     },
@@ -121,6 +125,30 @@ import {
       link : "https://www.facebook.com/ayush.purohit.3914/"
     },
   ];
+
+  const Jobs = [{
+    name : "BeakInterview.Com",
+    role : "Full Stack MERN development intern",
+    date : "May 2023 - June-2023",
+    tags: [
+      {
+        name: "react",
+        icon: reactjs,
+      },
+      {
+        name: "javascript",
+        icon: javascript,
+      },
+      {
+        name: "mui",
+        icon: mui,
+      },
+      {
+        name: "mongodb",
+        icon: mongodb,
+      },
+    ],
+  }]
   
   const webd = [
     {
@@ -352,4 +380,4 @@ import {
     
   ];
   
-  export {educations,lang, tools, webd, projects};
+  export {educations,lang, tools, webd, projects, Jobs};

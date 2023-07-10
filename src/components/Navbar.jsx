@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { menu, close } from "../assets";
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
@@ -81,7 +82,7 @@ const Navbar = (props) => {
                 {
                   light? <DarkModeIcon className={`${
                     scrolled? "text-white-100" : "text-gray-800"
-                  }`}/> : <LightModeIcon/>
+                  }`}/> : <LightModeIcon className="text-amber-400"/>
                 }
             </div>
             <p
@@ -127,12 +128,16 @@ const Navbar = (props) => {
           </ul>
        
         <div className='md:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
+          <span
             className='w-[28px] h-[28px] object-contain'
             onClick={() => setToggle(!toggle)}
-          />
+          >
+            {!toggle ? <MenuIcon className={`${
+                    scrolled? "text-white-100" : "text-[#915EFF]"
+                  }`}/> : <CloseIcon className={`${
+                    scrolled? "text-white-100" : "text-[#915EFF]"
+                  }`}/>}
+          </span>
 
           <div
             className={`${

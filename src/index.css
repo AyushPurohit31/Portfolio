@@ -35,7 +35,7 @@
 }
 
 .react-vertical-timeline-options {
-  color:slategray
+  color:orange
 }
 
 .hash-span {
@@ -44,8 +44,20 @@
   display: block;
 }
 
+
 .neon-button{
   box-shadow: 0 0 3px #eb269f,
   0 0 20px #eb269f;
 }
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
+
 
