@@ -8,9 +8,8 @@ import StarWrapper from "../sectionWrapper/sectionWrap";
 import {textVariant } from "../utils/motion";
 
 const TechCard = ({ key, index, title, icon }) => (
-    <motion.div
+    <div
       key={title}
-      whileInView={{ x: [50, 0], opacity: [0.5, 1], transition:{duration:1, damping:2} }}
       className='p-[1px] rounded-[20px] shadow-card'
     >
       <Tilt options={{
@@ -37,7 +36,7 @@ const TechCard = ({ key, index, title, icon }) => (
         </h3>
       </div>
       </Tilt>
-    </motion.div>
+    </div>
 );
 
 const Tech = () => {

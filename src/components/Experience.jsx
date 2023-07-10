@@ -41,17 +41,17 @@ const Experience = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                    <div className=" min-h-[180px] bg-[#915EFF] max-w-md p-5 border-b-4 border-slate-200 rounded-xl">
-                        <p className="text-white font-bold text-2xl mx-2">
+                    <div className="flex flex-col  bg-[#915EFF] w-[90%] xs:w-auto md:w-[40%]  p-5 border-b-4 border-slate-200 rounded-xl">
+                        <p className="text-white my-1 font-bold text-sm xs:text-base mx-1">
                             <span><BusinessIcon/></span> &nbsp;{j.name}
                         </p>
-                        <p className="text-white mx-2 my-2">
+                        <p className="text-white my:1 text-sm xs:text-base mx-1">
                             <span><WorkIcon/></span>&nbsp;{j.role}
                         </p>
-                        <p  className="text-white mx-2 my-2">
+                        <p  className="text-white my-1 text-sm xs:text-base mx-1">
                             {j.date}
                         </p>
-                        <div className='flex flex-wrap gap-3 justify-end'>
+                        <div className='flex flex-wrap gap-3 justify-evenly'>
                             {j.tags.map((t)=>(
                                 <img 
                                 className="w-10 h-10"

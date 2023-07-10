@@ -145,13 +145,13 @@ const Contact = () => {
           </div>
           </div>
           <div className="flex mt-2 items-center justify-center">
-          <ul className='list-none flex sm:gap-7 gap-2'>
+          <ul className='list-none flex flex-row'>
             {contacts.map((nav) => (
               <li
                 key={nav.id}
                 onClick={() => setActive(nav.title)}
               >
-                <button className="neon-button rounded-full m-1.5 w-12 h-12 bg-white">
+                <button className="neon-button rounded-full m-1.5 w-7 h-7 sm:w-10 sm:h-10 bg-white">
                     <img 
                       className="w-full h-full p-1" 
                       src={nav.icon} 

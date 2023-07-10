@@ -72,8 +72,7 @@ const Navbar = (props) => {
                 light && !scrolled? "text-slate-600" : null
               }
             hover:text-fuchsia-600 text-[20px] font-bold cursor-pointer flex`}>
-            Ayush &nbsp;
-            <span className='sm:hidden'> |&nbsp; Purohit</span>
+            Ayush
           </p>
         </Link>
 
@@ -85,7 +84,8 @@ const Navbar = (props) => {
                   }`}/> : <LightModeIcon className="text-amber-400"/>
                 }
             </div>
-            <p
+          <ul className='list-none hidden md:flex flex-row gap-5'>
+          <p
             onClick={openResume}
             className={`
               ${
@@ -100,9 +100,8 @@ const Navbar = (props) => {
               ${
                 light && !scrolled? "text-slate-700" : null
               }
-              hover:text-fuchsia-600 text-[16px] font-medium cursor-pointer my-auto mr-5`}
+              hover:text-fuchsia-600 text-[16px] font-medium cursor-pointer my-auto mr-1.5`}
               >Resume</p>
-          <ul className='list-none hidden md:flex flex-row gap-5'>
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
@@ -142,9 +141,13 @@ const Navbar = (props) => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 bg-primary absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } p-6 bg-primary absolute top-16 right-[5%] mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+            <ul className='list-none flex flex-col gap-2'>
+            <p
+            onClick={openResume}
+            className={`font-poppins font-medium cursor-pointer text-[16px] text-purple-400`}
+              >Resume</p>
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
