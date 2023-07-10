@@ -10,7 +10,7 @@ import {textVariant } from "../utils/motion";
 const TechCard = ({ key, index, title, icon }) => (
     <motion.div
       key={title}
-      whileInView={{ x: [100, 0], opacity: [0, 1], transition:{duration:0.5} }}
+      whileInView={{ x: [30, 0], opacity: [0, 1], transition:{duration:0.5} }}
       className='p-[1px] rounded-[20px] shadow-card'
     >
       <Tilt options={{

@@ -21,7 +21,7 @@ const Hero = (props) => {
 
         <div className="mt-[5%]">
           <h1 className={`${styles.heroHeadText} ${
-                light? "text-gray-500" : "text-white"
+                light? "text-zinc-500" : "text-white"
               }`}>
             Hi, I'm <span className='text-[#915EFF]'>Ayush</span>
           </h1>

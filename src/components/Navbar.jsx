@@ -5,9 +5,6 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { menu, close } from "../assets";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
@@ -32,7 +29,10 @@ const Navbar = (props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  
+  const openResume = () => {
+    window.open('https://drive.google.com/file/d/1tWKU7CbyBvA4cz38aG9akd4BmswUGDqE/view?usp=sharing');
+  };
+
   return (
     <motion.nav
     initial = {{y : -50}}
@@ -77,17 +77,31 @@ const Navbar = (props) => {
         </Link>
 
         <div className="flex">
-            <FormGroup>
-              <FormControlLabel
-                control={<Switch onChange={onLightChange} sx={{ m: 1 }}  defaultChecked />}
-                label={
-                  !light? <DarkModeIcon /> : <LightModeIcon className={`${
+            <div className="mx-5 cursor-pointer" onClick={onLightChange}>
+                {
+                  light? <DarkModeIcon className={`${
                     scrolled? "text-white-100" : "text-gray-800"
-                  }`}/>
+                  }`}/> : <LightModeIcon/>
                 }
-              />
-            </FormGroup>
-          <ul className='list-none hidden md:flex flex-row gap-7'>
+            </div>
+            <p
+            onClick={openResume}
+            className={`
+              ${
+                light && scrolled? "text-white" : null
+              }
+              ${
+                !light && !scrolled? "text-white" : null
+              }
+              ${
+                !light && scrolled? "text-white" : null
+              }
+              ${
+                light && !scrolled? "text-slate-700" : null
+              }
+              hover:text-fuchsia-600 text-[16px] font-medium cursor-pointer my-auto mr-5`}
+              >Resume</p>
+          <ul className='list-none hidden md:flex flex-row gap-5'>
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
@@ -104,7 +118,7 @@ const Navbar = (props) => {
                 ${
                   light && !scrolled? "text-slate-700" : null
                 }
-              hover:text-fuchsia-600 md:text-[20px] sm:text-[16px] font-medium cursor-pointer my-auto`}
+              hover:text-fuchsia-600 text-[16px] font-medium cursor-pointer my-auto`}
                 onClick={() => setActive(nav.title)}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>

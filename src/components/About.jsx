@@ -6,8 +6,7 @@ import { styles } from "../styles";
 import { textVariant } from "../utils/motion";
 import StarWrapper from "../sectionWrapper/sectionWrap";
 
-const About = (props) => {
-  const { light } = props;
+const About = () => {
 
   return (
     <>
