@@ -1,4 +1,5 @@
 import {
+    ECerti,
     javascript,
     html,
     kautilya,
@@ -26,7 +27,6 @@ import {
     linkedin,
     facebook,
     gmail,
-    boy,
     link,
     chatapp,
     crypthunt,
@@ -271,7 +271,7 @@ import {
       links : [
         {
           icon : github,
-          src : "https://github.com/AyushPurohit31"
+          src : "https://github.com/AyushPurohit31/Portfolio"
         },
       ],
     },
@@ -374,6 +374,37 @@ import {
         {
           icon : github,
           src : "https://github.com/AyushPurohit31/CodeGPT"
+        },
+      ],
+    },
+
+    {
+      name: "E-Certificate-Generator",
+      description:
+        "This is a feature which I developed for a EdTech platform. It can be used to send certificate pdf to given email and with your name.",
+      tags: [
+        {
+          name: "react",
+          icon: reactjs,
+        },
+        {
+          name: "javascript",
+          icon: javascript,
+        },
+        {
+          name: "Express",
+          icon: express,
+        },
+        {
+          name: "Node",
+          icon: nodejs,
+        },
+      ],
+      image: ECerti,
+      links : [
+        {
+          icon : github,
+          src : "https://github.com/AyushPurohit31/Certificate-generator"
         },
       ],
     },

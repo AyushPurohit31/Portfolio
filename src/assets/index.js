@@ -15,6 +15,7 @@ import ayushportfolio from './ayushportfolio.png';
 import crypthunt from './crypthunt.png';
 import footerimg from './footerimg.png';
 import CodeGPT from "./CodeGPT-Chat-AI.png"
+import ECerti from "./ECerti.png"
 
 import css from "./tech/css.png";
 import mui from "./tech/mui.png";
@@ -43,6 +44,7 @@ import vscode from "./tech/vscode.png"
 import firebase from "./tech/firebase.png"
 
 export {
+  ECerti,
   firebase,
   ayushportfolio,
   crypthunt,
