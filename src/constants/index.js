@@ -1,5 +1,6 @@
 import {
     ECerti,
+    StoreMate,
     javascript,
     html,
     kautilya,
@@ -272,6 +273,48 @@ import {
         {
           icon : github,
           src : "https://github.com/AyushPurohit31/Portfolio"
+        },
+      ],
+    },
+    {
+      name: "StoreMate",
+      description:
+        " This is a MERN stack application to efficiently manage inventory, and billing operations in stores/shops.",
+      tags: [
+        {
+          name: "react",
+          icon: reactjs,
+        },
+        {
+          name: "javascript",
+          icon: javascript,
+        },
+        {
+          name: "Tailwind",
+          icon: tailwind,
+        },
+        {
+          name: "expressJs",
+          icon: express,
+        },
+        {
+          name: "NodeJs",
+          icon: nodejs,
+        },
+        {
+          name: "Mongodb",
+          icon: mongodb,
+        },
+      ],
+      image: StoreMate,
+      links : [
+        {
+          icon : link,
+          src : "https://storemate.netlify.app/"
+        },
+        {
+          icon : github,
+          src : "https://github.com/AyushPurohit31/StoreClient"
         },
       ],
     },
