@@ -31,7 +31,7 @@ const Navbar = (props) => {
   }, []);
 
   const openResume = () => {
-    window.open('https://drive.google.com/file/d/1cqQDTDeN8BL1xLyuIFg30UaRSpfvrrN5/view?usp=sharing');
+    window.open('https://drive.google.com/file/d/18RoMQgXKq_0eAvBfeB2OKm1RZgaFj0QF/view?usp=sharing');
   };
 
   return (
